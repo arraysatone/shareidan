@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4EB877E821AC5403008DD603 /* LocModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB877E721AC5403008DD603 /* LocModel.swift */; };
 		AE3F73DB2183D01A00B3A004 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3F73DA2183D01A00B3A004 /* AppDelegate.swift */; };
 		AE3F73DD2183D01A00B3A004 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3F73DC2183D01A00B3A004 /* ViewController.swift */; };
 		AE3F73E22183D01D00B3A004 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE3F73E12183D01D00B3A004 /* Assets.xcassets */; };
@@ -46,6 +47,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4EB877E721AC5403008DD603 /* LocModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocModel.swift; sourceTree = "<group>"; };
 		AE3F73D72183D01A00B3A004 /* FinalProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinalProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE3F73DA2183D01A00B3A004 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AE3F73DC2183D01A00B3A004 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 			isa = PBXGroup;
 			children = (
 				AE63DA6A2198EC48009DC38C /* DataModel.swift */,
+				4EB877E721AC5403008DD603 /* LocModel.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -340,6 +343,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AE63DA6B2198EC49009DC38C /* DataModel.swift in Sources */,
+				4EB877E821AC5403008DD603 /* LocModel.swift in Sources */,
 				AE63DA692198DEF1009DC38C /* ShareViewController.swift in Sources */,
 				AE3F73DD2183D01A00B3A004 /* ViewController.swift in Sources */,
 				AE63DA632198D9A6009DC38C /* TableViewController.swift in Sources */,
