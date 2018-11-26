@@ -1,10 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1PQ-P6-miA">
+=======
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1PQ-P6-miA">
+>>>>>>> c36c7ab10827b515ba49a5a4722190e6deba8774
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+<<<<<<< HEAD
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+=======
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+>>>>>>> c36c7ab10827b515ba49a5a4722190e6deba8774
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -52,7 +60,11 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
+<<<<<<< HEAD
+                                    <action selector="getLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="i9I-Ud-Wfg"/>
+=======
                                     <segue destination="ulP-TM-1jo" kind="show" id="eKm-kG-cKy"/>
+>>>>>>> c36c7ab10827b515ba49a5a4722190e6deba8774
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5A6-Nq-gbm">
@@ -72,6 +84,14 @@
                     <navigationItem key="navigationItem" title="ThinClient Locator" id="8qS-46-Mrv">
                         <barButtonItem key="backBarButtonItem" title="Logout" id="DTe-UM-Grr"/>
                     </navigationItem>
+<<<<<<< HEAD
+                    <connections>
+                        <outlet property="loginBtn" destination="kDU-b9-2iJ" id="ga4-Rv-Psw"/>
+                        <outlet property="passwordText" destination="Prn-4B-1ZY" id="B8n-I6-YgI"/>
+                        <outlet property="userText" destination="Wqa-WZ-EEy" id="Vbj-LE-Q73"/>
+                    </connections>
+=======
+>>>>>>> c36c7ab10827b515ba49a5a4722190e6deba8774
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -189,7 +209,10 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+<<<<<<< HEAD
+=======
                         <outlet property="locationsTable" destination="kjt-KT-5jH" id="UQ8-Ww-PrG"/>
+>>>>>>> c36c7ab10827b515ba49a5a4722190e6deba8774
                         <segue destination="QWB-y7-Omk" kind="show" identifier="thinClientViewSegue" id="s2H-QS-JAx"/>
                     </connections>
                 </tableViewController>
@@ -453,7 +476,12 @@
         <image name="share.png" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
+<<<<<<< HEAD
+        <segue reference="cuc-Dc-GO9"/>
+        <segue reference="gv9-lj-4Oa"/>
+=======
         <segue reference="SuX-As-oxR"/>
         <segue reference="OCc-RP-85c"/>
+>>>>>>> c36c7ab10827b515ba49a5a4722190e6deba8774
     </inferredMetricsTieBreakers>
 </document>
