@@ -3,7 +3,7 @@
 //  FinalProject
 //
 //  Created by Kevin Baumgartner on 2018-11-11.
-//  Copyright © 2018 Xcode User. All rights reserved.
+//  Copyright © 2018 Kevin Baumgartner. All rights reserved.
 //
 
 import UIKit
@@ -11,6 +11,7 @@ import MessageUI
 
 class ShareViewController: UIViewController {
 
+    
     @IBOutlet weak var toField: UITextField?
     @IBOutlet weak var ccField: UITextField?
     @IBOutlet weak var subjectField: UITextField?
@@ -25,6 +26,10 @@ class ShareViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+    }
+    
+    @IBAction func emailBtnPressed(_ sender: Any) {
+        parseEmail()
     }
     
     func parseEmail(){
@@ -59,7 +64,7 @@ class ShareViewController: UIViewController {
             return
         }
         bodyStr = bodyTemp
-        
+        sendEmail()
     }
     
     func sendEmail(){
@@ -81,4 +86,5 @@ class ShareViewController: UIViewController {
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
         controller.dismiss(animated: true, completion: nil)
     }
+
 }
