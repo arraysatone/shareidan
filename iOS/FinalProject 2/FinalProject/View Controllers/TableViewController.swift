@@ -9,82 +9,95 @@
 import UIKit
 
 class TableViewController: UITableViewController {
-
+    
+    //Declarations
+    var delegate: TableViewDelegate?
+    let buildingPath = "https://arraysatone.com/getBuildings.php"
+    var locObj: [locData]? = []
+    
+    //Outlets
+    @IBOutlet var locationsTable: UITableView?
+    
+    //On Initial Load Method
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        downloadLocations(completion: {(data) in
+            
+            if let locationsTable = self.locationsTable{
+                locationsTable.dataSource = self
+                locationsTable.delegate = self
+                locationsTable.reloadData()
+            }else{
+                print("Unable to reload table with downloaded data.")
+            }
+        })
     }
-
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+    
+    //Function to Download Locations from the online Database using JSONSerialization
+    func downloadLocations(completion: @escaping ( ([locData]?) -> Void) ) {
+        
+        guard let url = URL(string: buildingPath) else { return }
+        URLSession.shared.dataTask(with: url) { (data, response, error) in
+            if error != nil {
+                print(error!.localizedDescription)
+            }
+            guard let data = data else { return }
+            do {
+                let locDatas = try JSONDecoder().decode([locData].self, from: data)
+                var counter = 0
+                DispatchQueue.main.async {
+                    for objects in locDatas{
+                        self.locObj?.append(objects)
+                        counter = counter + 1
+                    }
+                    completion(self.locObj)
+                }
+            } catch let jsonError {
+                print(jsonError)
+            }
+        }.resume()
     }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
-    }
-
-    /*
+    
+    //Stylize TableView Cells
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "locationCell", for: indexPath)
+        
+        cell.textLabel?.numberOfLines = 0
+        
+        if let location = locObj?[indexPath.row]{
+            cell.textLabel?.text = location.address
+        }
         return cell
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    
+    //Table Sections
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+    
+    //Table Rows
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.locObj?.count ?? 1
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
+    
+    //On Location Select, Assign data to Method to be sent to the MapViewController
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let location = locObj?[indexPath.row]{
+            handleBack((Any).self, xcoord: location.xcoord, ycoord: location.ycoord)
+        }
     }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
+    
+    //Assigning data
+    func handleBack(_ sender: Any, xcoord: String?, ycoord: String?)
+    {
+        delegate?.tableViewDidFinish(sender:self, xcoord: xcoord, ycoord: ycoord)
+        dismiss(animated:true, completion:nil)
     }
-    */
+}
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+//TableViewDelegate
+protocol TableViewDelegate: AnyObject
+{
+    func tableViewDidFinish(sender: TableViewController, xcoord: String?, ycoord: String?)
 }

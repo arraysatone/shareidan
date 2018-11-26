@@ -14,7 +14,6 @@ class TableViewController: UITableViewController {
     
     var locObj: [locData]? = []
     
-    
     @IBOutlet var locationsTable: UITableView?
     
     override func viewDidLoad() {

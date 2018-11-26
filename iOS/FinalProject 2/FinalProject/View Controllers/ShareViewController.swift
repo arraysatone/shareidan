@@ -10,28 +10,32 @@ import UIKit
 import MessageUI
 
 class ShareViewController: UIViewController {
-
     
+    //Outlets
     @IBOutlet weak var toField: UITextField?
     @IBOutlet weak var ccField: UITextField?
     @IBOutlet weak var subjectField: UITextField?
     @IBOutlet weak var bodyField: UITextView?
     @IBOutlet weak var sendBtn: UIButton?
     
+    //Declarations
     var toStr: String?
     var ccStr: String?
     var subjectStr: String?
     var bodyStr: String?
     
+    //On Initial Load
     override func viewDidLoad() {
         super.viewDidLoad()
         
     }
     
+    //When the final submit button is pressed
     @IBAction func emailBtnPressed(_ sender: Any) {
         parseEmail()
     }
     
+    //Parse the form fields into an auto-generated email using the local default email client
     func parseEmail(){
         guard let toTemp = toField?.text, !toTemp.isEmpty else{
             let shareController = UIAlertController(title: "Error", message: "Email requires a recipient!", preferredStyle: .alert)
@@ -67,6 +71,7 @@ class ShareViewController: UIViewController {
         sendEmail()
     }
     
+    //Composes the Email and preps for sending
     func sendEmail(){
         if MFMailComposeViewController.canSendMail(){
             let shareMail = MFMailComposeViewController()
@@ -83,8 +88,9 @@ class ShareViewController: UIViewController {
         }
     }
     
+    //Opens the default mail client
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
         controller.dismiss(animated: true, completion: nil)
     }
-
+    
 }
