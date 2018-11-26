@@ -23,7 +23,7 @@
 		AE63DA672198DE57009DC38C /* LiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE63DA662198DE57009DC38C /* LiveViewController.swift */; };
 		AE63DA692198DEF1009DC38C /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE63DA682198DEF1009DC38C /* ShareViewController.swift */; };
 		AE63DA6B2198EC49009DC38C /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE63DA6A2198EC48009DC38C /* DataModel.swift */; };
-		AE63DA6E2199CF1C009DC38C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE63DA6C2199CF1C009DC38C /* Main.storyboard */; };
+		AEA67E8921AC6CCB00DE51BC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEA67E8821AC6CCB00DE51BC /* Main.storyboard */; };
 		AEF20FF321AC4B560018B982 /* tempSelect.php in Resources */ = {isa = PBXBuildFile; fileRef = AEF20FF221AC4B560018B982 /* tempSelect.php */; };
 		AEF20FF521AC4B5D0018B982 /* login.php in Resources */ = {isa = PBXBuildFile; fileRef = AEF20FF421AC4B5D0018B982 /* login.php */; };
 		AEF20FF721AC4BF40018B982 /* getBuildings.php in Resources */ = {isa = PBXBuildFile; fileRef = AEF20FF621AC4BF40018B982 /* getBuildings.php */; };
@@ -69,7 +69,7 @@
 		AE63DA662198DE57009DC38C /* LiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveViewController.swift; sourceTree = "<group>"; };
 		AE63DA682198DEF1009DC38C /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		AE63DA6A2198EC48009DC38C /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
-		AE63DA6D2199CF1C009DC38C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		AEA67E8821AC6CCB00DE51BC /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		AEF20FF221AC4B560018B982 /* tempSelect.php */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.php; name = tempSelect.php; path = FinalProject/tempSelect.php; sourceTree = SOURCE_ROOT; };
 		AEF20FF421AC4B5D0018B982 /* login.php */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.php; name = login.php; path = FinalProject/login.php; sourceTree = SOURCE_ROOT; };
 		AEF20FF621AC4BF40018B982 /* getBuildings.php */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.php; path = getBuildings.php; sourceTree = "<group>"; };
@@ -169,8 +169,8 @@
 		AE63DA5C2198D241009DC38C /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				AEA67E8821AC6CCB00DE51BC /* Main.storyboard */,
 				AE3F73E32183D01D00B3A004 /* LaunchScreen.storyboard */,
-				AE63DA6C2199CF1C009DC38C /* Main.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -308,8 +308,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AE63DA6E2199CF1C009DC38C /* Main.storyboard in Resources */,
 				AEF20FF521AC4B5D0018B982 /* login.php in Resources */,
+				AEA67E8921AC6CCB00DE51BC /* Main.storyboard in Resources */,
 				AE3F73E52183D01D00B3A004 /* LaunchScreen.storyboard in Resources */,
 				AE3F73E22183D01D00B3A004 /* Assets.xcassets in Resources */,
 				AE63DA562198AFE0009DC38C /* share.png in Resources */,
@@ -391,14 +391,6 @@
 				AE3F73E42183D01D00B3A004 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		AE63DA6C2199CF1C009DC38C /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				AE63DA6D2199CF1C009DC38C /* Base */,
-			);
-			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
