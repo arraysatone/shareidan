@@ -72,6 +72,11 @@
                     <navigationItem key="navigationItem" title="ThinClient Locator" id="8qS-46-Mrv">
                         <barButtonItem key="backBarButtonItem" title="Logout" id="DTe-UM-Grr"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="loginBtn" destination="kDU-b9-2iJ" id="ga4-Rv-Psw"/>
+                        <outlet property="passwordText" destination="Prn-4B-1ZY" id="B8n-I6-YgI"/>
+                        <outlet property="userText" destination="Wqa-WZ-EEy" id="Vbj-LE-Q73"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

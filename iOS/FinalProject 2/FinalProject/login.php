@@ -1,18 +1,13 @@
 <?php
 	session_start();
-	$dbservername = "142.55.32.48";
-	$dbusername = "irelaale_admin";
-	$dbpassword = "L}zOAdgkc[Wr";
-	$dbname = "irelaale_iOSFinal";
+	$dbservername = "107.180.27.180";
+	$dbusername = "iOSfinaladmin";
+	$dbpassword = "iOSfinaladmin";
+	$dbname = "iOSfinal";
 	
 	
 	$username = $_POST["user"];
-	$unhashed_pass = $_POST["pass"];
-    $cookie = $_POST["cookie"]
-    
-	$split_user = str_split($username);
-	$size_of_array = count($split_user);
-	$unhashed_pass = $unhashed_pass.$split_user[0].$split_user[$size_of_array-1]; //Applying the first and last digits of user
+	$pass = $_POST["pass"];
 
 	// Create connection
 	$conn = new mysqli($dbservername, $dbusername, $dbpassword, $dbname);
@@ -21,20 +16,19 @@
 	    die("Connection failed: " . $conn->connect_error);
 	} 
 
-	$sql = "SELECT ID,Password FROM UserTable WHERE Username='".$username."'";
+	$sql = "SELECT user,pass FROM users WHERE user='".$username."'";
 	$result = $conn->query($sql);
 
 	if ($result->num_rows > 0) {
 		// output data of each row
 		while($row = $result->fetch_assoc()) {
-			$userID = $row["ID"];
-			$assessment_hash = $row["Password"];
+			$checkPass = $row["pass"];
 		}
 	} else {
 		//echo "0 results";
 	}
 	
-	if (password_verify($unhashed_pass,$assessment_hash)){
+	if ($username == ""){
 		//echo "Login successful";
 		//echo "OK!";
 
