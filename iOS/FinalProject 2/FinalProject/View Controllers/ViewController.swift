@@ -13,14 +13,27 @@ class ViewController: UIViewController {
     @IBOutlet weak var passwordText: UITextField!
     @IBOutlet weak var loginBtn: UIButton!
     
-    let urlpath = ""
+    let urlPath = "https://www.arraysatone.com/iOSfinallogin.php?user=a&pass=a"
+    var jsonObj : jsonData?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
     
-    func getLogin(completion: @escaping ( (jsonData?) -> Void) ) {
+    @IBAction func getLogin(_ sender: Any) {
+        downloadItems(completion: {(data) in
+            self.Login(dataObj: data)
+        })
+    }
+    
+    func Login(dataObj : jsonData?){
+        
+        
+    }
+    
+    func downloadItems(completion: @escaping ( (jsonData?) -> Void) ) {
         
         guard let url = URL(string: urlPath) else { return }
         URLSession.shared.dataTask(with: url) { (data, response, error) in
@@ -46,7 +59,7 @@ class ViewController: UIViewController {
             }
             
             
-            }.resume()
+        }.resume()
     }
 
 

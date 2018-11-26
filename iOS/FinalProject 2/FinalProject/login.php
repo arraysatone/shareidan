@@ -6,8 +6,8 @@
 	$dbname = "iOSfinal";
 	
 	
-	$username = $_POST["user"];
-	$pass = $_POST["pass"];
+	$username = $_GET["user"];
+	$pass = $_GET["pass"];
 
 	// Create connection
 	$conn = new mysqli($dbservername, $dbusername, $dbpassword, $dbname);
@@ -28,16 +28,9 @@
 		//echo "0 results";
 	}
 	
-	if ($username == ""){
-		//echo "Login successful";
-		//echo "OK!";
-
-        $rememberSql = "INSERT INTO RememberMe (ForeignID,Cookie,Type) VALUES ('".$userID."','".$generatedKey."','Cookie')";
-        if ($conn->query($rememberSql) === TRUE) {
-            //echo "Cookie Remember Me success";
-        }
-		    
-
+	if ($checkPass == $pass){
+		//login success
+        echo 'Hi';
 	} else{
 		//echo "Login failure";
 	}
