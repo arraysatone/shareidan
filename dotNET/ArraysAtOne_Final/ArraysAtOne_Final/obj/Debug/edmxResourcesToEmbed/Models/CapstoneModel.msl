@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CapstoneModelStoreContainer" CdmEntityContainer="CapstoneEntities">
+    <EntitySetMapping Name="SENSOR_0001203B">
+      <EntityTypeMapping TypeName="CapstoneModel.SENSOR_0001203B">
+        <MappingFragment StoreEntitySet="SENSOR_0001203B">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="temp" ColumnName="temp" />
+          <ScalarProperty Name="movement" ColumnName="movement" />
+          <ScalarProperty Name="time" ColumnName="time" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SENSORS">
+      <EntityTypeMapping TypeName="CapstoneModel.SENSOR">
+        <MappingFragment StoreEntitySet="SENSORS">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="uid" ColumnName="uid" />
+          <ScalarProperty Name="threshold" ColumnName="threshold" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

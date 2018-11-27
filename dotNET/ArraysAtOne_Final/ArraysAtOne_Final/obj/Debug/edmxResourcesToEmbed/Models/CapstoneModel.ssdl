@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CapstoneModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="SENSOR_0001203B">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="temp" Type="float" Nullable="false" />
+    <Property Name="movement" Type="tinyint" Nullable="false" />
+    <Property Name="time" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SENSORS">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="uid" Type="varchar" MaxLength="8" Nullable="false" />
+    <Property Name="threshold" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="CapstoneModelStoreContainer">
+    <EntitySet Name="SENSOR_0001203B" EntityType="Self.SENSOR_0001203B" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SENSORS" EntityType="Self.SENSORS" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

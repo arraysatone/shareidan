@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CapstoneModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="SENSOR_0001203B">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="temp" Type="Double" Nullable="false" />
+    <Property Name="movement" Type="Byte" Nullable="false" />
+    <Property Name="time" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="SENSOR">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="uid" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="threshold" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="CapstoneEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="SENSOR_0001203B" EntityType="Self.SENSOR_0001203B" />
+    <EntitySet Name="SENSORS" EntityType="Self.SENSOR" />
+  </EntityContainer>
+</Schema>

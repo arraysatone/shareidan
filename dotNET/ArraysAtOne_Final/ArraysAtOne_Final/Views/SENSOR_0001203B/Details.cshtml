@@ -1,0 +1,41 @@
+﻿@model ArraysAtOne_Final.Models.SENSOR_0001203B
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>SENSOR_0001203B</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.temp)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.temp)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.movement)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.movement)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.time)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.time)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>

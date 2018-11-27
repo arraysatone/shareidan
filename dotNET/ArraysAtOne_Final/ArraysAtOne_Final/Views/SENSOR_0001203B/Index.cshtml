@@ -1,0 +1,38 @@
+﻿@model IEnumerable<ArraysAtOne_Final.Models.SENSOR_0001203B>
+
+@{
+    ViewBag.Title = "Cabinet 1";
+}
+
+<h2>Cabinet 1</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.temp)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.movement)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.time)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.temp)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.movement)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.time)
+            </td>
+        </tr>
+    }
+
+</table>
