@@ -12,6 +12,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var userText: UITextField!
     @IBOutlet weak var passwordText: UITextField!
     @IBOutlet weak var loginBtn: UIButton!
+    var loginStatus = false
     
     let urlPath = "https://www.arraysatone.com/iOSfinallogin.php?user=a&pass=a"
     var jsonObj : jsonData?
@@ -23,45 +24,69 @@ class ViewController: UIViewController {
     }
     
     @IBAction func getLogin(_ sender: Any) {
-        downloadItems(completion: {(data) in
-            self.Login(dataObj: data)
+        postAction(completion: {(data) in
+            guard let guardAccess = data else {return}
+            self.Login(success: guardAccess)
         })
     }
     
-    func Login(dataObj : jsonData?){
-        
+    func Login(success : Bool){
+        if (success){
+            self.performSegue(withIdentifier: "locSegue", sender: self)
+        }
+        else{
+            let alert = UIAlertController(title: "ERROR", message: "Invalid Credentials", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
         
     }
     
-    func downloadItems(completion: @escaping ( (jsonData?) -> Void) ) {
+    func postAction(completion: @escaping ( (Bool?) -> Void) ) {
+        let Url = String(format: "https://www.arraysatone.com/php/login.php")
+        guard let serviceUrl = URL(string: Url) else { return }
+        //let parameterDictionary = ["user" : userText.text, "pass" : passwordText.text]
+        guard let guardUser:String = userText.text else {
+            return //Please insert User
+        }
+        guard let guardPass: String = passwordText.text else {
+            return //Please insert pass
+        }
+        let URLMake = "user="+guardUser+"&pass="+guardPass
         
-        guard let url = URL(string: urlPath) else { return }
-        URLSession.shared.dataTask(with: url) { (data, response, error) in
-            if error != nil {
-                print(error!.localizedDescription)
-            }
-            
-            guard let data = data else { return }
-            //Implement JSON decoding and parsing
-            do {
-                //Decode retrived data with JSONDecoder and assing type of Article object
-                let jsonDatas = try JSONDecoder().decode([jsonData].self, from: data)
-                
-                //Get back to the main queue
-                DispatchQueue.main.async {
-                    //print(articlesData)
-                    self.jsonObj = jsonDatas[0]
-                    completion(self.jsonObj)
+        var request = URLRequest(url: serviceUrl)
+        request.httpMethod = "POST"
+        guard let httpBody = URLMake.data(using: String.Encoding.utf8) else {
+            print("Parameter Make Failure")
+            return
+        }
+        request.httpBody = httpBody
+        
+        let session = URLSession.shared
+        session.dataTask(with: request) { (data, response, error) in
+                if let response = response {
+                    //print(response)
                 }
-                
-            } catch let jsonError {
-                print(jsonError)
-            }
-            
-            
-        }.resume()
+                if let data = data {
+                    do {
+                        if let returnData = String(data: data, encoding: .utf8) {
+                            DispatchQueue.main.async {
+                                if (returnData == "success"){
+                                    self.loginStatus = true
+                                }
+                                completion(self.loginStatus)
+                            }
+
+                        } else {
+                            print("")
+                        }
+                        
+                    }catch {
+                        print(error)
+                    }
+                }
+            }.resume()
+        
     }
-
-
 }
 
