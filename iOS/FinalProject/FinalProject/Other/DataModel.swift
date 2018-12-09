@@ -10,6 +10,8 @@ import UIKit
 
 struct jsonData: Decodable {
     let temp: String?
+    let movement: String?
     let time: String?
-    let uid: String?
+    let max: String?
+    let min: String?
 }

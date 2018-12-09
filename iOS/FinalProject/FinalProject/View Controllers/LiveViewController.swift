@@ -19,7 +19,7 @@ class LiveViewController: UIViewController {
     
     var jsonObj : jsonData?
     
-    let urlPath = "http://harquaim.dev.fast.sheridanc.on.ca/iOS/tempSelect.php"
+    let urlPath = "https://www.arraysatone.com/php/iOSTemps"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,11 +30,21 @@ class LiveViewController: UIViewController {
     
     func updateTemp(dataObj: jsonData?){
         guard let liveLbl = liveDataLbl,
-            //let moveLbl = movementLbl,
-            let updateLbl = timeLbl else{
+            let maxLbl = highLbl,
+            let minLbl = lowLbl,
+            let updateLbl = timeLbl,
+            let tempStr = dataObj?.temp,
+            let maxStr = dataObj?.max,
+            let minStr = dataObj?.min
+        else{
             return
         }
-        liveLbl.text = dataObj?.temp
+        let tempSubStr = tempStr.prefix(2)
+        let maxSubStr = maxStr.prefix(2)
+        let minSubStr = minStr.prefix(2)
+        liveLbl.text = String(tempSubStr) + "°C"
+        maxLbl.text = String(maxSubStr) + "°C"
+        minLbl.text = String(minSubStr) + "°C"
         updateLbl.text = dataObj?.time
     }
     
@@ -45,17 +55,15 @@ class LiveViewController: UIViewController {
             if error != nil {
                 print(error!.localizedDescription)
             }
-            
             guard let data = data else { return }
             //Implement JSON decoding and parsing
             do {
-                //Decode retrived data with JSONDecoder and assing type of Article object
-                let jsonDatas = try JSONDecoder().decode([jsonData].self, from: data)
-                
+                //Decode retrieved data with JSONDecoder and assing type of Article object
+                let jsonDatas = try JSONDecoder().decode(jsonData.self, from: data)
                 //Get back to the main queue
                 DispatchQueue.main.async {
                     //print(articlesData)
-                    self.jsonObj = jsonDatas[0]
+                    self.jsonObj = jsonDatas
                     completion(self.jsonObj)
                 }
                 
