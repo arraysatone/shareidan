@@ -44,9 +44,7 @@ class SettingsController: UIViewController {
     
     
     func postAction(completion: @escaping ( (Bool?) -> Void) ) {
-        guard let guardValue:Float = ValueSlider!.value else {
-            return //Please insert User
-        }
+        let guardValue = ValueSlider.value
         let Url = String(format: "https://www.arraysatone.com/php/tempchanger.php?uid=0001203B&temp="+String(Int(guardValue)))
         print("Into PosT")
         guard let serviceUrl = URL(string: Url) else { return }
@@ -61,21 +59,16 @@ class SettingsController: UIViewController {
                 print(response)
             }
             if let data = data {
-                do {
-                    if let returnData = String(data: data, encoding: .utf8) {
-                        DispatchQueue.main.async {
-                            if (returnData == "Record updated successfully"){
-                                completion(true)
-                            }
-                            completion(false)
+                if let returnData = String(data: data, encoding: .utf8) {
+                    DispatchQueue.main.async {
+                        if (returnData == "Record updated successfully"){
+                            completion(true)
                         }
-                        
-                    } else {
-                        print("")
+                        completion(false)
                     }
                     
-                }catch {
-                    print(error)
+                } else {
+                    print("")
                 }
             }
             }.resume()

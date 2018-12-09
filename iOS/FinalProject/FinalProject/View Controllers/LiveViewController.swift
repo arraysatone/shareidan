@@ -16,13 +16,21 @@ class LiveViewController: UIViewController {
     @IBOutlet weak var highLbl: UILabel!
     @IBOutlet weak var lowLbl: UILabel!
     @IBOutlet weak var timeLbl: UILabel!
+    @IBOutlet weak var refreshBtn: UIButton!
     
     var jsonObj : jsonData?
+    var timer : Timer?
     
     let urlPath = "https://www.arraysatone.com/php/iOSTemps"
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        downloadItems(completion: {(data) in
+            self.updateTemp(dataObj: data)
+        })
+    }
+    
+    @IBAction func refreshLbls(_ sender: Any) {
         downloadItems(completion: {(data) in
             self.updateTemp(dataObj: data)
         })
@@ -35,14 +43,26 @@ class LiveViewController: UIViewController {
             let updateLbl = timeLbl,
             let tempStr = dataObj?.temp,
             let maxStr = dataObj?.max,
-            let minStr = dataObj?.min
+            let minStr = dataObj?.min,
+            let thresh = dataObj?.thresh
         else{
             return
         }
         let tempSubStr = tempStr.prefix(2)
         let maxSubStr = maxStr.prefix(2)
         let minSubStr = minStr.prefix(2)
-        liveLbl.text = String(tempSubStr) + "°C"
+        
+        if let tempInt = Int(tempSubStr),
+            let threshInt = Int(thresh){
+            if(tempInt >= threshInt){
+                liveLbl.text = String(tempSubStr) + "°C"
+                liveLbl.textColor = self.hexStringToUIColor(hex: "#ed2323")
+            }
+            else{
+                liveLbl.text = String(tempSubStr) + "°C"
+                liveLbl.textColor = self.hexStringToUIColor(hex: "#63e87c")
+            }
+        }
         maxLbl.text = String(maxSubStr) + "°C"
         minLbl.text = String(minSubStr) + "°C"
         updateLbl.text = dataObj?.time
@@ -73,6 +93,28 @@ class LiveViewController: UIViewController {
             
             
         }.resume()
+    }
+    
+    func hexStringToUIColor (hex:String) -> UIColor {
+        var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
+        
+        if (cString.hasPrefix("#")) {
+            cString.remove(at: cString.startIndex)
+        }
+        
+        if ((cString.count) != 6) {
+            return UIColor.gray
+        }
+        
+        var rgbValue:UInt32 = 0
+        Scanner(string: cString).scanHexInt32(&rgbValue)
+        
+        return UIColor(
+            red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
+            green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
+            blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
+            alpha: CGFloat(1.0)
+        )
     }
 
     /*

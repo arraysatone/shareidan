@@ -25,6 +25,7 @@
 		AE63DA672198DE57009DC38C /* LiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE63DA662198DE57009DC38C /* LiveViewController.swift */; };
 		AE63DA692198DEF1009DC38C /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE63DA682198DEF1009DC38C /* ShareViewController.swift */; };
 		AE63DA6B2198EC49009DC38C /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE63DA6A2198EC48009DC38C /* DataModel.swift */; };
+		AE8652AD21BDCA8100E41512 /* baseline_refresh_white_18dp.png in Resources */ = {isa = PBXBuildFile; fileRef = AE8652AC21BDCA8100E41512 /* baseline_refresh_white_18dp.png */; };
 		AEA67E8921AC6CCB00DE51BC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEA67E8821AC6CCB00DE51BC /* Main.storyboard */; };
 		AEF20FF321AC4B560018B982 /* tempSelect.php in Resources */ = {isa = PBXBuildFile; fileRef = AEF20FF221AC4B560018B982 /* tempSelect.php */; };
 		AEF20FF521AC4B5D0018B982 /* login.php in Resources */ = {isa = PBXBuildFile; fileRef = AEF20FF421AC4B5D0018B982 /* login.php */; };
@@ -73,6 +74,7 @@
 		AE63DA662198DE57009DC38C /* LiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveViewController.swift; sourceTree = "<group>"; };
 		AE63DA682198DEF1009DC38C /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		AE63DA6A2198EC48009DC38C /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
+		AE8652AC21BDCA8100E41512 /* baseline_refresh_white_18dp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = baseline_refresh_white_18dp.png; sourceTree = "<group>"; };
 		AEA67E8821AC6CCB00DE51BC /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		AEF20FF221AC4B560018B982 /* tempSelect.php */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.php; name = tempSelect.php; path = FinalProject/tempSelect.php; sourceTree = SOURCE_ROOT; };
 		AEF20FF421AC4B5D0018B982 /* login.php */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.php; name = login.php; path = FinalProject/login.php; sourceTree = SOURCE_ROOT; };
@@ -183,6 +185,7 @@
 		AE63DA5D2198D24D009DC38C /* Media */ = {
 			isa = PBXGroup;
 			children = (
+				AE8652AC21BDCA8100E41512 /* baseline_refresh_white_18dp.png */,
 				AE63DA602198D5E9009DC38C /* maple.png */,
 				AE63DA582198AFF9009DC38C /* settings-work-tool (1).png */,
 				AE63DA542198AFDF009DC38C /* share.png */,
@@ -324,6 +327,7 @@
 				AE63DA532198AFD2009DC38C /* Screen Shot 2018-10-26 at 7.08.16 PM.png in Resources */,
 				AE63DA592198AFFA009DC38C /* settings-work-tool (1).png in Resources */,
 				AEF20FF721AC4BF40018B982 /* getBuildings.php in Resources */,
+				AE8652AD21BDCA8100E41512 /* baseline_refresh_white_18dp.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

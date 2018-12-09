@@ -64,9 +64,6 @@ class ViewController: UIViewController {
         
         let session = URLSession.shared
         session.dataTask(with: request) { (data, response, error) in
-                if let response = response {
-                    //print(response)
-                }
                 if let data = data {
                     do {
                         if let returnData = String(data: data, encoding: .utf8) {
@@ -81,8 +78,6 @@ class ViewController: UIViewController {
                             print("")
                         }
                         
-                    }catch {
-                        print(error)
                     }
                 }
             }.resume()

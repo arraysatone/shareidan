@@ -14,4 +14,5 @@ struct jsonData: Decodable {
     let time: String?
     let max: String?
     let min: String?
+    let thresh: String?
 }
